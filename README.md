@@ -1,54 +1,89 @@
-# React + TypeScript + Vite
+# Collider Clone
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern web application clone of [Collider](https://www.drinkcollider.com/) - a non-alcoholic beer brand that creates functional mushroom-infused beverages for relaxation without alcohol.
 
-Currently, two official plugins are available:
+## About
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project is a pixel-perfect recreation of the Collider website, showcasing their innovative approach to non-alcoholic beer with mood-boosting botanicals and functional mushrooms. The site features their product lineup including Lager, Session IPA, and Starter Packs.
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Framework**: React 19 + TypeScript
+- **Build Tool**: Vite 6.3
+- **Styling**: Tailwind CSS 4.1 + Stylus CSS Modules
+- **Animation**: Motion (Framer Motion)
+- **State Management**: Zustand
+- **Code Quality**: ESLint + Prettier
+- **Font**: Neue Montreal (Custom font family)
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname
-    }
-  }
-})
-```
+## Features
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- **Modern UI/UX**: Sleek, responsive design with custom animations
+- **Responsive**: Fully responsive across all device sizes
+- **Performance**: Optimized with Vite for fast development and production builds
+- **Animations**: Smooth animations powered by Motion library
+- **Component Architecture**: Modular, reusable React components
+- **TypeScript**: Full type safety and better developer experience
+- **Interactive Elements**: Engaging micro-interactions and hover effects
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Design System
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules
-  }
-})
-```
+### Colors
+
+- **Primary**: Not defined yet
+- **Background**: Not defined yet
+- **Accent**: Not defined yet
+
+### Typography
+
+- **Primary Font**: Neue Montreal (Bold, Medium, Regular, Light)
+- **Hierarchy**: Strategic use of font weights and sizes
+
+### Components
+
+- Product cards with hover animations
+- Interactive navigation
+- Smooth scroll animations
+- Modal overlays for cart and authentication
+
+## Key Pages/Sections
+
+- **Hero Section**: Video background with compelling product messaging
+- **Product Showcase**: Lager, Session IPA, and Starter Pack displays
+- **Features Grid**: Mood boosting, superior flavor, alcohol-free benefits
+- **Customer Reviews**: Social proof with verified testimonials
+- **Comparison Table**: "Us vs Them" competitive analysis
+- **FAQs**: Comprehensive product and ingredient information
+
+## Development Notes
+
+### Styling Approach
+
+- **Tailwind CSS**: Utility-first for rapid development
+- **Stylus Modules**: Component-specific styling with CSS modules
+- **Standard.js**: Code style following Standard.js conventions
+
+### Animation Strategy
+
+- **Motion Library**: Declarative animations for React components
+- **Performance**: Transform-based animations for GPU acceleration
+- **UX**: Subtle micro-interactions enhancing user experience
+
+### State Management
+
+- **Zustand**: Lightweight state management for global app state
+- **React Hooks**: Local component state and effects
+
+## License
+
+This project is for educational purposes. All design rights belong to Collider.
+
+## Acknowledgments
+
+- [Collider](https://www.drinkcollider.com/) for the original design inspiration
+- React and Vite teams for excellent developer experience
+- Open source community for the amazing tools and libraries
+
+---
+
+**Note**: This is a clone project created for educational purposes. Not affiliated with the original Collider brand.
