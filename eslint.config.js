@@ -51,7 +51,7 @@ export default tseslint.config(
       'prefer-const': 'error',
       'no-unused-vars': 'off', // TypeScript handles this
       '@typescript-eslint/no-unused-vars': [
-        'error',
+        'warn',
         {
           argsIgnorePattern: '^_',
           varsIgnorePattern: '^_'
