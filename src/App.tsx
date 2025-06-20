@@ -1,7 +1,9 @@
-import Header from '@components/header'
-
 function App() {
-  return <Header />
+  return (
+    <>
+      <main className="container h-[200vh]"></main>
+    </>
+  )
 }
 
 export default App
