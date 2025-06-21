@@ -1,5 +1,6 @@
 import Logo from '@assets/logo.svg?react'
 import { RoundedButton } from '@components/button/rounded-button'
+import { useWindowScrollPosition } from '@hooks/use-window-scroll-position'
 import { useWindowSize } from '@hooks/use-window-size'
 import { LANDING_DATA } from '@statics/landing-data'
 import { cn } from '@utils/cn'
@@ -7,20 +8,10 @@ import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { NavLink, useLocation } from 'react-router'
 export default function Header() {
-  const [isAtTop, setIsAtTop] = useState(true)
   const [isLanding, setIsLanding] = useState(false)
   const { width } = useWindowSize()
   const pathname = useLocation().pathname
-
-  useEffect(() => {
-    function handleScroll() {
-      setIsAtTop(window.scrollY < 10)
-    }
-    window.addEventListener('scroll', handleScroll)
-    return function () {
-      window.removeEventListener('scroll', handleScroll)
-    }
-  }, [])
+  const { y } = useWindowScrollPosition()
 
   useEffect(() => {
     setIsLanding(pathname === '/')
@@ -28,34 +19,19 @@ export default function Header() {
 
   return (
     <header className="relative">
-      {LANDING_DATA?.announcement &&
-        isAtTop &&
-        (!isLanding || width < 1280) && (
-          <a
-            className="bg-foreground text-background block w-full text-center leading-[38px] font-medium tracking-wider uppercase"
-            href={LANDING_DATA.announcement.link}
-          >
-            {LANDING_DATA.announcement.text}
-          </a>
-        )}
-      {LANDING_DATA?.dealText && isAtTop && (
-        <NavLink
-          className={cn(
-            'fixed left-1/2 z-[110] w-fit -translate-x-1/2',
-            isAtTop && (!isLanding || width < 1280)
-              ? 'top-[calc(22.5px+38px)]'
-              : 'top-[22.5px]'
-          )}
-          to={LANDING_DATA.dealText.link}
+      {LANDING_DATA?.announcement && y < 10 && (!isLanding || width < 1280) && (
+        <a
+          className="bg-foreground text-background block w-full text-center leading-[38px] font-medium tracking-wider uppercase"
+          href={LANDING_DATA.announcement.link}
         >
-          {LANDING_DATA.dealText.text}
-        </NavLink>
+          {LANDING_DATA.announcement.text}
+        </a>
       )}
       <nav
         className={cn(
           'top-0 right-0 left-0 z-100 border-b py-4',
-          isAtTop ? 'relative' : 'fixed',
-          isLanding && isAtTop
+          y < 10 ? 'relative' : 'fixed',
+          isLanding && y < 10
             ? 'border-b-transparent'
             : 'border-b-foreground bg-background'
         )}
@@ -94,11 +70,12 @@ export default function Header() {
         className="fixed left-1/2 z-[110] w-fit -translate-x-1/2 mix-blend-exclusion"
         initial={{ top: isLanding ? 16.5 + 21 : 16.5 + 38 }}
         animate={{
-          top: isAtTop
-            ? isLanding && width > 1280
-              ? 16.5 + 38 + 21
-              : 16.5 + 38
-            : 16.5
+          top:
+            y < 10
+              ? isLanding && width > 1280
+                ? 16.5 + 38 + 21
+                : 16.5 + 38
+              : 16.5
         }}
         transition={{ duration: isLanding && width > 1280 ? 0.3 : 0 }}
       >
@@ -107,7 +84,7 @@ export default function Header() {
             animate={
               width > 1280
                 ? isLanding
-                  ? { width: isAtTop ? '90vw' : 212 }
+                  ? { width: y < 10 ? '90vw' : 212 }
                   : { width: isLanding ? '90vw' : 212 }
                 : { width: 212 }
             }
