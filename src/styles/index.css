@@ -27,6 +27,18 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.container {
-  @apply mx-auto max-w-[1380px];
+@layer utilities {
+  .container {
+    @apply mx-auto max-w-[1380px];
+
+    @media (max-width: 1420px) {
+      @apply max-w-[95vw];
+    }
+  }
+  .bg-primary-dummy {
+    background-color: var(--color-primary);
+  }
+  .text-secondary-dummy {
+    color: var(--color-secondary);
+  }
 }

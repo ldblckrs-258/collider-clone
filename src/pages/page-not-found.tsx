@@ -4,7 +4,7 @@ import { NavLink } from 'react-router'
 
 export default function PageNotFound() {
   return (
-    <main className="flex h-[60vh] w-screen flex-col items-center justify-center gap-5">
+    <main className="flex h-[60vh] w-full flex-col items-center justify-center gap-5">
       <h1 className="font-jogan-soft mb-5 text-9xl font-bold">404</h1>
       <p>I can't let you do that</p>
       <NavLink to="/">

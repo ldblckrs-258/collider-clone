@@ -10,8 +10,9 @@
       "@/*": ["*"],
       "@assets/*": ["assets/*"],
       "@components/*": ["components/*"],
+      "@hooks/*": ["hooks/*"],
       "@pages/*": ["pages/*"],
-      "@static/*": ["static/*"],
+      "@statics/*": ["statics/*"],
       "@styles/*": ["styles/*"],
       "@utils/*": ["utils/*"]
     }
